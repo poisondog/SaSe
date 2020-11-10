@@ -1,0 +1,5 @@
+
+rootProject.name = 'start.android.kotlin.app'
+
+include ':library'
+project(':library').projectDir = file('../')
