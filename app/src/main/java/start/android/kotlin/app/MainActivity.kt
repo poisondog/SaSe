@@ -3,10 +3,11 @@ package start.android.kotlin.app
 import java.util.logging.Logger
 import java.util.Timer
 import java.util.TimerTask
-import android.widget.GridView
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.widget.GridView
+import android.widget.Toast;
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import start.android.kotlin.utils.InjectUtils
@@ -33,6 +34,11 @@ class MainActivity : AppCompatActivity() {
 //			val grid = findViewById(R.id.grid) as GridView
 			grid.setAdapter(adapter);
 		})
+
+		grid.setOnItemClickListener { parent, view, position, id ->
+//			Toast.makeText(this, "Clicked item :"+" "+position,Toast.LENGTH_SHORT).show()
+			viewModel.remove(position)
+		}
 	}
 
 	override fun onStart() {
